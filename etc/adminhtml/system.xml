@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2022. All rights reserved.
+  ~ @author: Volodymyr Hryvinskyi <mailto:volodymyr@hryvinskyi.com>
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="hryvinskyi_pagespeed">
+            <group id="css">
+                <group id="extreme_lazy_load" translate="label" type="text" sortOrder="200" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Extreme Lazy Load</label>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="10"
+                           showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Enable Extreme Lazy Load</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="enabled_timeout" translate="label comment" type="select" sortOrder="20"
+                           showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Delay loading css by time</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="timeout" translate="label comment" type="text" sortOrder="30"
+                           showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Timeout in milliseconds</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                            <field id="enabled_timeout">1</field>
+                        </depends>
+                    </field>
+                    <field id="delay_events" translate="label comment" type="multiselect" sortOrder="40"
+                           showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Delay css loading by events</label>
+                        <source_model>Hryvinskyi\PageSpeedCssExtremeLazyLoadAdminUi\Model\Config\Source\DelayCssEvents</source_model>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="exclude_by_attributes" translate="label comment" type="text" sortOrder="60"
+                           showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Exclude lazy loading css by attributes.</label>
+                        <comment>Specify comma separated attributes.</comment>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>
