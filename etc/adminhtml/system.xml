@@ -16,6 +16,15 @@
                         <label>Enable Extreme Lazy Load</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
+                    <field id="only_deferred" translate="label comment" type="select" sortOrder="10"
+                           showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Enable only for deferred attribute</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Applied lazy loading css only for link type="text/css" has attribute deferred="true" or defer.</comment>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
                     <field id="enabled_timeout" translate="label comment" type="select" sortOrder="20"
                            showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Delay loading css by time</label>
