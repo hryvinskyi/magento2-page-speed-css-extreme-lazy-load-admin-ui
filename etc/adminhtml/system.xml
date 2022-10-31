@@ -65,7 +65,9 @@
                     <field id="apply_for_page_types" translate="label comment" type="textarea" sortOrder="80"
                            showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Enable for this specific page types</label>
-                        <comment>Specify new line separated page types. Like: cms_page_view catalog_product_view</comment>
+                        <comment><![CDATA[Specify new line separated page types. Like:
+<pre>cms_page_view
+catalog_product_view</pre>]]></comment>
                         <depends>
                             <field id="enabled">1</field>
                             <field id="is_apply_for_page_types">1</field>
